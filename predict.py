@@ -16,9 +16,9 @@ if not os.path.exists("modelos/modelo_fatiga_knn.pkl"):
         st.stop()
 
 
-MODELO_PATH_KNN = "proyecto/modelos/modelo_fatiga_knn.pkl"
-MODELO_PATH_LR  = "proyecto/modelos/modelo_fatiga_lr.pkl"
-MODELO_PATH_DT  = "proyecto/modelos/modelo_fatiga_dt.pkl"
+MODELO_PATH_KNN = "modelos/modelo_fatiga_knn.pkl"
+MODELO_PATH_LR  = "modelos/modelo_fatiga_lr.pkl"
+MODELO_PATH_DT  = "modelos/modelo_fatiga_dt.pkl"
 
 # --- Carga de modelos ---
 try:
@@ -36,7 +36,7 @@ except Exception as e:
 # metricas
 @st.cache_data
 def cargar_metricas():
-    return joblib.load("proyecto/modelos/metricas.pkl")
+    return joblib.load("modelos/metricas.pkl")
 
 try:
     metricas = cargar_metricas()

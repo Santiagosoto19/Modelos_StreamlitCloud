@@ -8,9 +8,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 
-MODELO_PATH_KNN = "proyecto/modelos/modelo_fatiga_knn.pkl"
-MODELO_PATH_LR  = "proyecto/modelos/modelo_fatiga_lr.pkl"
-MODELO_PATH_DT  = "proyecto/modelos/modelo_fatiga_dt.pkl"
+MODELO_PATH_KNN = "modelos/modelo_fatiga_knn.pkl"
+MODELO_PATH_LR  = "modelos/modelo_fatiga_lr.pkl"
+MODELO_PATH_DT  = "modelos/modelo_fatiga_dt.pkl"
 
 print("Entrenando modelo por primera vez...\n")
 
@@ -65,7 +65,7 @@ metricas = {
     "lr":  {"mse": mse_lr,  "mae": mae_lr,  "r2": r2_lr},
     "dt":  {"mse": mse_dt, "mae": mae_dt, "r2": r2_dt},
 }
-joblib.dump(metricas, "proyecto/modelos/metricas.pkl")
+joblib.dump(metricas, "modelos/metricas.pkl")
 
 joblib.dump(modelo_lr,  MODELO_PATH_LR)
 joblib.dump(modelo_knn, MODELO_PATH_KNN)
