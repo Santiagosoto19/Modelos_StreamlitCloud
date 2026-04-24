@@ -1,6 +1,20 @@
 import pandas as pd
 import joblib
 import streamlit as st
+import os
+import subprocess
+
+
+# Entrenar si no existen los modelos
+if not os.path.exists("modelos/modelo_fatiga_knn.pkl"):
+    st.info("Entrenando modelos por primera vez, espera un momento...")
+    resultado = subprocess.run(["python", "train.py"], capture_output=True, text=True)
+    if resultado.returncode == 0:
+        st.success("Modelos entrenados correctamente.")
+    else:
+        st.error(f"Error al entrenar: {resultado.stderr}")
+        st.stop()
+
 
 MODELO_PATH_KNN = "proyecto/modelos/modelo_fatiga_knn.pkl"
 MODELO_PATH_LR  = "proyecto/modelos/modelo_fatiga_lr.pkl"
